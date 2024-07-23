@@ -1,47 +1,503 @@
-<!doctype html>
-<html>
-	<head>
-		<title>touch me</title>
-	</head>
-	<body>
-        <div id= "spag">
-    <img src = "https://www.carusopizza.cz/321-large_default/spaghetti-pomodoro.jpg" class="pic" onclick="no()">
-    </div>
-    <div id= "text">
-        !!!DON'T TOUCHE MY SPAGHETTE!!!
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poster Collection</title>
+    <!-- Google Font for Latin and Arabic script -->
+<link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
     <style>
-        #text{
-            visibility: hidden;
-            color: whitesmoke;
-            font-family: sans-serif;
-            font-size: 140px;
-             transform: scale(1, 2);
-  -webkit-transform: scale(1, 2); /* Safari and Chrome */
-  -moz-transform: scale(1, 2); /* Firefox */
-  -ms-transform: scale(1, 2); /* IE 9+ */
-  -o-transform: scale(1, 2); /* Opera */
-            position: fixed;
-            top: 120px; 
-            text-align: center;
-        }
-        #spag{
-            margin: auto;
-                width: 55%;
+    /* styles.css */
+    body {
+        font-family: 'Rakkas', cursive;
+        background: #d71920; /* Background base color */
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    a {line-height: 0;}
+
+ 
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
     padding: 10px;
-            
-        }
-        img{
-            width=25%;
-        }
-    </style> 
-        
+    margin: 0 15px; /* Small margin on left and right */
+    align-items: start; /* Align items to the start for uniform spacing */
+}
+
+.poster-block {
+    background-color: #d71920; /* Palestinian flag red */
+    color: #ffffff;
+    padding: 0;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    border: 2px solid #e0e0e0;
+    overflow: hidden; /* Ensures content fits inside the block */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster-block.landscape {
+    grid-column: span 2; /* Span two columns if image is landscape */
+}
+
+.poster-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio based on image width */
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .poster-block.landscape {
+        grid-column: span 2; /* Span two columns if image is landscape */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .poster-block {
+        margin-bottom: 10px;
+    }
+    
+    .poster-block.landscape {
+        grid-column: span 2; /* Continue to span two columns in two-column layout */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .poster-block.landscape {
+        grid-column: span 1; /* Use full width in single column layout */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .info-icon {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        font-size: 1.2em;
+        cursor: pointer;
+        color: #fff;
+        background-color: #0e7046; /* Palestinian flag green */
+        padding: 5px 10px;
+        border-radius: 10px;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 500px;
+        color: #000;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
+    /* Complex keffiyeh pattern */
+    body {
+            background-attachment: fixed; /* Keeps the background fixed */
+        background-image: 
+            linear-gradient(45deg, transparent 70%, #0e7046 70%, #0e7046 76%, transparent 76%),
+            linear-gradient(-45deg, transparent 70%, #0e7046 70%, #0e7046 76%, transparent 76%),
+            linear-gradient(45deg, #d71920 24%, transparent 24%, transparent 26%, #d71920 26%),
+            linear-gradient(-45deg, #d71920 24%, transparent 24%, transparent 26%, #d71920 26%);
+        background-size: 100px 100px;
+        background-position: 0 0, 0 50px, 50px 50px;
+    }
+</style>
+
+
+</head>
+<body>
+    <div class="info-icon" onclick="toggleModal()">( i )</div>
+    <div class="container">
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002828090" target="_blank"><img src="palestina vry.jpeg" alt="Poster 1" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001843777" target="_blank"><img src="palestijnse gevangenen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002223813"><img src="palestijnse gevangenen 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868963" target="_blank"><img src="israel apartheid tot welke prijs.jpeg" alt="Poster 1" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844213" target="_blank"><img src="nederzettingen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002827522" target="_blank"><img src="stop de oorlog.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002827639" target="_blank"><img src="stop de muur.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001000543" target="_blank"><img src="stop massamoord demonstratie.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001843629" target="_blank"><img src="massamoord.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844080" target="_blank"><img src="steun1.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001768560" target="_blank"><img src="steun2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017265" target="_blank"><img src="steun3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017034" target="_blank"><img src="steun4.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017422" target="_blank"><img src="steun5.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017372" target="_blank"><img src="steun6.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002869060" target="_blank"><img src="arabisch1.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002827530" target="_blank"><img src="gieren.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016861" target="_blank"><img src="arabisch2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652724" target="_blank"><img src="arabisch3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002048947   " target="_blank"><img src="arabisch4.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844478" target="_blank"><img src="arabisch5.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652567" target="_blank"><img src="medisch komitee.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016762" target="_blank"><img src="medisch 3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002210729" target="_blank"><img src="medisch collecte.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016978" target="_blank"><img src="halve maan 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016929" target="_blank"><img src="halve maan.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868807" target="_blank"><img src="concentratiekampen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017026" target="_blank"><img src="baretten.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017075" target="_blank"><img src="gazastrook.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017125" target="_blank"><img src="gazastrook 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051003006209" target="_blank"><img src="zionisme is racisme.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652666" target="_blank"><img src="gaza.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844239" target="_blank"><img src="land.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844445" target="_blank"><img src="dag van het land 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844064" target="_blank"><img src="dag van het land 3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844403" target="_blank"><img src="dag van het land.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002827548" target="_blank"><img src="solidariteitsavond.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002223607" target="_blank"><img src="solidariteitsbijeenkomst.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844437" target="_blank"><img src="demonstratie.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844098" target="_blank"><img src="solidariteitsdag.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868997" target="_blank"><img src="solidair met politiek gevangenen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002869656" target="_blank"><img src="solidair.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844130" target="_blank"><img src="solidariteit demonstratie.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652237" target="_blank"><img src="solidariteitsavond (2).jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:KDC01:7002642" target="_blank"><img src="palestina draagt de overwinning.jpeg" alt="Poster 1" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017190" target="_blank"><img src="palestina 23 jr isr agr.jpeg" alt="Poster 1" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002211073" target="_blank"><img src="vrouwen van palestina.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002211123" target="_blank"><img src="vrouwen2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844189" target="_blank"><img src="vrouwen3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017299" target="_blank"><img src="guustaaf1.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017349" target="_blank"><img src="guustaaf2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844049" target="_blank"><img src="solidariteit 3.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844171" target="_blank"><img src="palestina week.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868815" target="_blank"><img src="nasser dood.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016812" target="_blank"><img src="nog niet alle palestijnen zijn dood 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:AMH-BAAL0040499" target="_blank"><img src="nog niet alle palestijnen zijn dood 1.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868948" target="_blank"><img src="nog niet alle palestijnen zijn dood.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001843728" target="_blank"><img src="nog niet alle palestijnen zijn dood 0.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844387" target="_blank"><img src="vrij.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017174" target="_blank"><img src="25 jaar israel.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017315" target="_blank"><img src="10 jaar bezetting.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002223458" target="_blank"><img src="protestconcert.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868989" target="_blank"><img src="palestinaweek 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002868781" target="_blank"><img src="manifestatie.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000336609" target="_blank"><img src="marokkaanse lied.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002827332" target="_blank"><img src="info-avond vrankrijk.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652617" target="_blank"><img src="manifestatie2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017091" target="_blank"><img src="palestina week 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:IISG03:30051001869798" target="_blank"><img src="palestina filmweek.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017414" target="_blank"><img src="filmcyclus.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016879" target="_blank"><img src="konsert.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844304" target="_blank"><img src="palestina avond.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844122" target="_blank"><img src="palestynse kwestie.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844163" target="_blank"><img src="overwinning.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051000652286" target="_blank"><img src="duizend maal welkom.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:KDC01:7000381" target="_blank"><img src="gebed offer.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844379" target="_blank"><img src="solidariteitsdag 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017182" target="_blank"><img src="collage.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001756052" target="_blank"><img src="open avond.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:NAGO-WP00872" target="_blank"><img src="perspektief in palestina.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017364" target="_blank"><img src="vrede.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017067" target="_blank"><img src="vluchtelingen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002041488" target="_blank"><img src="fascisme.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017232" target="_blank"><img src="seminar.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002876818" target="_blank"><img src="studenten.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002722038" target="_blank"><img src="muur.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002223508" target="_blank"><img src="aan het woord.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844338" target="_blank"><img src="producten.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002212824" target="_blank"><img src="mijn bedroefde stad.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001017240" target="_blank"><img src="vrijheid voor palestijnen.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002210976" target="_blank"><img src="bezetting.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:KDC01:7196803" target="_blank"><img src="gezondheidszorg.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844288" target="_blank"><img src="de-strijd.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016911" target="_blank"><img src="vrede 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051002223557" target="_blank"><img src="film 2-weekse.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001844056" target="_blank"><img src="manifestatie 2.jpeg" class="poster-image"></a> 
+        </div>
+        <div class="poster-block landscape">
+           <a href="https://resolver.kb.nl/resolve?urn=urn:gvn:NAGO02:IISG-30051001016960" target="_blank"><img src="staat.jpeg" class="poster-image"></a> 
+        </div>
+        </div>
+    </div>
+
+    <!-- Modal for additional info -->
+    <div class="modal" id="infoModal">
+        <div class="modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <p><b>Palestina Posters NL</b><br>
+            This is a collection of 97 Dutch posters about Palestina, grabbed* from <a href="https://geheugen.delpher.nl/nl/geheugen/results?query=palestina&page=1&maxperpage=36&coll=ngvn&facets%5BgettyPrefLabelNL%5D%5B%5D=affiches" target="_blank">Het Geheugen</a>, most particularly from the <a href="https://geheugen.delpher.nl/nl/geheugen/pages/collectie/Afficheproject" target="_blank">Afficheproject</a>. The posters, containing text in Dutch, Arabic, Turkish and a bit of English, relate to Dutch activism and advocacy for the Palestinian struggle in different ways. Some of them are bold visual statements in themselves, proclaiming a liberatory message. Others share information about the Palestinian context. And a large part of the collection is posters for events like demonstrations, lectures, cultural events, etc. <br><br>I made a loose curation of the different posters, connecting them by topic, phrasing, aesthetic, context and language. Besides putting them in a pleasing and thoughtful order, I didn't make a selection from the website materials - I just took out doubles, and didn't include materials specifically related to Libanon. I recommend using Google Translate's Lens to get translations of the texts.<br><br>If you click** on the images, you will be taken to the Geheugen website which contains more extensive information about the posters. Most noticably, only the designs made by professional white male designers are properly credited. <br><br>
+            *all copyright of course remains with the  owners<br>
+            **all the info is manually added, so please <a href="https://instagram.com/converger.studio" target="_blank">contact me</a> if a link is wrongly attributed.</p>
+        </div>
+    </div>
+
+    <!-- Translate button -->
+    <button class="translate-button" onclick="translatePage()">Translate to Arabic</button>
+
     <script>
-        function no(){
-            document.body.style.background = "red";
-            var texto = document.getElementById("text")
-            texto.style.visibility = "visible";
+        function toggleModal() {
+            var modal = document.getElementById('infoModal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function translatePage() {
+            const isRTL = document.body.style.direction === 'rtl';
+            document.body.style.direction = isRTL ? 'ltr' : 'rtl';
+            document.querySelectorAll('.poster-title').forEach((title) => {
+                title.textContent = isRTL ? title.dataset.titleEn : title.dataset.titleAr;
+            });
         }
     </script>
-	</body>
+</body>
 </html>
